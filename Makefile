@@ -1,7 +1,4 @@
-
-
 RELNAME := $(shell lsb_release -cs)
-#PWD := $(shell pwd)
 
 
 .PHONY: 
@@ -30,12 +27,12 @@ docker-repo: docker-prereqs
 docker-setup: docker-repo
 	@sudo apt update
 	@sudo apt install docker-ce docker-ce-cli containerd.io
-	sudo groupadd -f docker
-	[ -z "$(groups | grep docker)" ] && \
+	@if [ -z "$(shell groups | grep docker)" ]; then  \
+		sudo groupadd -f docker; \
 		sudo usermod -aG docker $(USER); \
 		echo "User added to the docker group."; \
-		echo "Please login again before using docker."; \
-		exec sudo su -l $(USER)
+		echo "Please reboot this machine or login again before using docker."; \
+	fi
 
 PHON: docker-build
 docker-build:

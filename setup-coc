@@ -17,6 +17,7 @@ if [ ! -f package.json ]
 then
   echo '{"dependencies":{}}'> package.json
 fi
+
 # Change extension names to the extensions you need
-npm install coc-css --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
+npm install coc-explorer coc-css coc-tsserver coc-json coc-html --global-style --ignore-scripts --no-bin-links --no-package-lock --only=prod
 

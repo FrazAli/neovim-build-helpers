@@ -36,4 +36,4 @@ docker-setup: docker-repo
 
 PHON: docker-build
 docker-build:
-	@docker build .
+	@docker build -t docker-neovim .

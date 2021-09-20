@@ -20,3 +20,5 @@ WORKDIR /tmp
 COPY setup-coc /tmp/
 
 RUN /tmp/setup-coc
+
+ENTRYPOINT ["nvim"]

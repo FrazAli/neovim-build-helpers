@@ -24,7 +24,7 @@ neovim-prereqs:
 
 .PHONY: neovim-fetch
 neovim-fetch:
-	@cd ${WORKDIR} && git clone https://github.com/neovim/neovim
+	@cd ${WORKDIR} && git clone https://github.com/neovim/neovim || echo "'neovim' directory alreaydy exists, skipping 'git clone'"
 
 .PHONY: neovim-build
 neovim-build: neovim-fetch

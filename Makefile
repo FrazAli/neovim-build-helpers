@@ -30,7 +30,7 @@ neovim-fetch:
 neovim-build: neovim-fetch
 	@cd ${WORKDIR}/neovim \
 		&& git checkout stable \
-		&& make -j4
+		&& CMAKE_BUILD_TYPE=RelWithDebInfo make -j4
 
 .PHONY: neovim-install
 neovim-install: neovim-build

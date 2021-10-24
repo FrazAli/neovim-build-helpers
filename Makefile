@@ -6,6 +6,15 @@ WORKDIR := /tmp
 all: docker-setup docker-build
 	@echo "All done!"
 
+.PHONY: nerdfont-install
+nerdfont-install:
+	@mkdir -p $(HOME)/.local/share/fonts
+	@sudo apt-get update
+	@sudo apt-get install fonts-hack-ttf curl wget
+	@cd ~/.local/share/fonts && \
+		curl -fLo /tmp/Hack.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip && \
+		unzip /tmp/Hack.zip -d $(HOME)/.local/share/fonts/
+
 .PHONY: neovim-prereqs
 neovim-prereqs:
 	@sudo apt-get update

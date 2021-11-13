@@ -2,7 +2,7 @@ RELNAME := $(shell lsb_release -cs)
 WORKDIR := /tmp
 
 
-.PHONY: 
+.PHONY:
 all: docker-setup docker-build
 	@echo "All done!"
 
@@ -46,10 +46,10 @@ neovim-install: neovim-build
 	@cd ${WORKDIR}/neovim \
 		&& sudo make install
 
-.PHONY: neovim-plugins
-neovim-plugins:
+.PHONY: neovim-config
+neovim-config:
 	@sudo apt-get update
-	@sudo apt-get install ripgrep
+	@sudo apt-get install --yes ripgrep fd-find
 	rsync -auv ./nvim/* $(HOME)/.config/nvim/
 
 .PHONY: docker-prereqs

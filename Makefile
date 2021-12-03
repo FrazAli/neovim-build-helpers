@@ -46,11 +46,6 @@ neovim-install: neovim-build
 	@cd ${WORKDIR}/neovim \
 		&& sudo make install
 
-.PHONY: neovim-config
-neovim-config:
-	@sudo apt-get update
-	@sudo apt-get install --yes ripgrep fd-find
-	rsync -auv ./dotfiles/nvim/* $(HOME)/.config/nvim/
 
 .PHONY: docker-prereqs
 docker-prereqs:

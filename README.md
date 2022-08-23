@@ -1,4 +1,4 @@
-# neovim configuration and setup inside a docker container (WIP)
+# neovim build inside a docker container (WIP)
 
 The aim of the project is to setup a docker container that handles the build and configuration of neovim.
 

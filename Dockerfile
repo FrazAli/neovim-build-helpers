@@ -1,4 +1,3 @@
-#FROM debian:buster
 FROM node:16.10.0-buster
 
 RUN apt-get update \
@@ -10,10 +9,6 @@ RUN cd neovim \
 	&& git checkout stable \
 	&& make -j4 \
 	&& make install
-
-# vRUN curl -sL install-node.now.sh | sh
-
-# RUN curl --compressed -o- -L https://yarnpkg.com/install.sh | bash
 
 WORKDIR /tmp
 
